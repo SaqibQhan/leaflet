@@ -1,0 +1,51 @@
+!!!
+%html
+  %head
+    %meta{:content => "width=device-width, initial-scale=1.0", :name => "viewport"}
+      %title= content_for?(:title) ? yield(:title) : "Vaihtais.in is a simple daycare exchange service"
+      %meta{:content => content_for?(:description) ? yield(:description) : "Vaihtais.in is a simple daycare exchange service", :name => "description"}
+        = stylesheet_link_tag "application", :media => "all"
+        = javascript_include_tag "application"
+        = csrf_meta_tags
+        = yield(:head)
+  #wrapper
+  #sidebar
+    %a.btn-navbar{"data-target" => ".nav-collapse", "data-toggle" => "collapse"}
+      %span.icon-bar
+      %span.icon-bar
+      %span.icon-bar
+    / <div id="logo"> <a href="/"><img src="img/logo.svg" alt="logo" /></a> </div>
+    %nav#nav.navigation{:role => "navigation"}
+      %ul.unstyled
+        %li.active{"data-section" => "1"}
+          %i.icon-home
+          %span Home
+        %li{"data-section" => "2"}
+          %i.icon-user
+          %span About
+        %li{"data-section" => "3"}
+          %i.icon-laptop
+          %span Projects
+        %li{"data-section" => "4"}
+          %i.icon-pencil
+          %span Social
+        %li.last{"data-section" => "5"}
+          %i.icon-envelope
+          %span Contact
+    / /nav
+  / /sidebar
+  #container
+    %section#section1.section{"data-section" => "1"}
+      .container-fluid
+        .row-fluid
+          .alt-image.img-circle.thumb
+            %img.img-circle{:alt => "Your Name", :src => "/assets/img/thumb.jpg"}/
+          .span8.intro
+          .span4.intro
+          = yield
+          / /span6
+        / /row-fluid
+      / /container-fluid
+    / /section
+
+
