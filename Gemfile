@@ -50,7 +50,3 @@ group :test do
   gem 'database_cleaner'
   gem 'email_spec'
 end
-
-group :production do
-  gem 'rails_12factor'
-end
